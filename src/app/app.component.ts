@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'profile-manager';
+
+  public LogOut(){
+    window.location.href = "http://localhost:4200/login";
+  }
 }

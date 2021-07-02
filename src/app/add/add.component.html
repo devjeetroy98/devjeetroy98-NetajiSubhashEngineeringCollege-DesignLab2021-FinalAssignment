@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <div class="form-container">
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="exampleInputUser">Name Of Friend</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="John Doe" formControlName="name">
+              </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Date of Birth</label>
+                  <input type="date" class="form-control" id="exampleInputPassword1" placeholder="" formControlName="dob">
+                </div>
+                <div class="upload-pic">
+                    <button type="button" mat-raised-button color="primary" style="display:block;width:150px; height:50px;" onclick="document.getElementById('pictures').click()">Upload Pictures</button>
+                    <input type='file' id="pictures" name="Pictures" formControlName="picture" style="display:none" (change)="selectPics($event)" accept='image/*' />
+                    <div *ngFor="let url of urls; index as i">
+                        <img [src]="url" alt="" class="pictures-thumbnail" >
+                        <button mat-mini-fab color="warn" (click)="removeItem(i)" >
+                            <mat-icon class="btnx">delete</mat-icon>
+                        </button>
+                    </div>
+                </div>
+                    <div class="foot">
+                        <button mat-raised-button color="primary" type="submit">Submit</button>
+                    </div>
+        </form>
+    </div>
+</div>
+
+
